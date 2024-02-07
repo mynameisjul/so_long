@@ -6,7 +6,7 @@
 #    By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/23 16:04:07 by jblaye            #+#    #+#              #
-#    Updated: 2024/02/06 11:09:13 by jblaye           ###   ########.fr        #
+#    Updated: 2024/02/07 16:28:08 by jblaye           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,14 +16,14 @@ TEST_NAME = test_so_long
 SRC = srcs/*.c main.c
 TEST_SRC = srcs/*.c test.c
 
-HEADERS = -I include/so_long.h -I /usr/include -I mlx_linux -O3 
+HEADERS = -I includes/so_long.h -I /usr/includes -I mlx_linux -O3 
 
 OBJ = $(SRC:.c=.o)
 TEST_OBJ = $(TEST_SRC:.c=.o)
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-MLXFLAG = -l Xext -l X11 -lmlx
+MLXFLAG = -l Xext -l X11 -lm
 RM = rm -f
 
 .c.o:

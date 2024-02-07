@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:21:19 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/06 10:52:07 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/07 15:07:01 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 # define SO_LONG_H
 
 # include <stdio.h>
-# include "./libft/libft.h"
-# include "./mlx-linux/mlx.h"
+# include "../libft/libft.h"
+# include "../mlx-linux/mlx.h"
+
 
 # define WIDTH 1920
 # define HEIGHT 1000

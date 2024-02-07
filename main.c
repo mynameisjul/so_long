@@ -6,11 +6,11 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:20:52 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/06 10:50:59 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/07 16:27:37 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "includes/so_long.h"
 
 int	main(int ac, char **av)
 {
