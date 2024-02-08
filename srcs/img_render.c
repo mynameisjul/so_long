@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 13:44:39 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/07 16:29:42 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/08 12:35:36 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,9 @@ int	push_image(void *mlx, void *mlx_win)
 {
 	t_img	img;
 
-	
 	img.img_ptr = mlx_new_image(mlx, WIDTH, HEIGHT);
-	img.addr = mlx_get_data_addr(img.img_ptr, &img.bits_per_pixel, &img.line_length,
-								&img.endian);
+	img.addr = mlx_get_data_addr(img.img_ptr, &img.bits_per_pixel,
+			&img.line_length, &img.endian);
 	mlx_put_image_to_window(mlx, mlx_win, img.img_ptr, 0, 0);
 	if (!img.img_ptr)
 		return (-1);
@@ -42,7 +41,7 @@ int	push_image(void *mlx, void *mlx_win)
 
 void	free_all(void *mlx, void *mlx_win, t_img *img)
 {
-	mlx_destroy_image(mlx,img);
+	mlx_destroy_image(mlx, img);
 	mlx_destroy_display(mlx);
 	mlx_clear_window(mlx, mlx_win);
 	mlx_destroy_window(mlx, mlx_win);

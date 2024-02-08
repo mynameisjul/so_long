@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:21:19 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/07 15:07:01 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/08 12:35:59 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,12 @@
 # define SO_LONG_H
 
 # include <stdio.h>
+# include <fcntl.h>
 # include "../libft/libft.h"
 # include "../mlx-linux/mlx.h"
+# include "so_long_defines.h"
 
-
-# define WIDTH 1920
-# define HEIGHT 1000
-
-typedef struct s_coord
-{
-	int	x;
-	int	y;
-	int	z;
-}				t_coord;
-
-typedef struct s_vec2
-{
-	double	x;
-	double	y;
-}				t_vec2;
+typedef 
 
 typedef struct s_img {
 	void	*img_ptr;
@@ -41,6 +28,9 @@ typedef struct s_img {
 	int		line_length;
 	int		endian;
 }				t_img;
+
+/// MAP PARSING
+int		open_map(char *file_name);
 
 /// GRAPHIC FUNCTIONS
 int		create_window(void);
