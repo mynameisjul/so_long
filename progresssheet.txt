@@ -1,5 +1,9 @@
 TO DO 
 
+PROGRAMME
+==> initialiser la map dans le main !!! avec map init
+
+
 PARSING
 __________________
 -> creer get next line length avec une longueur max de ligne en parametre

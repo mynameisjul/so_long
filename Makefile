@@ -6,7 +6,7 @@
 #    By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/23 16:04:07 by jblaye            #+#    #+#              #
-#    Updated: 2024/02/07 16:28:08 by jblaye           ###   ########.fr        #
+#    Updated: 2024/02/12 14:10:52 by jblaye           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ OBJ = $(SRC:.c=.o)
 TEST_OBJ = $(TEST_SRC:.c=.o)
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -g3 -Wall -Wextra -Werror
 MLXFLAG = -l Xext -l X11 -lm
 RM = rm -f
 
