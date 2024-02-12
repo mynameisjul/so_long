@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:21:19 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/08 12:35:59 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/12 16:05:15 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,15 @@
 # include "../mlx-linux/mlx.h"
 # include "so_long_defines.h"
 
-typedef 
+typedef struct s_map {
+	char	**map_data;
+	int		fd;
+	int		size[2];
+	int		nb_coins;
+	int		player[2];
+	int		exit[2];
+	int		enemies;
+}				t_map;
 
 typedef struct s_img {
 	void	*img_ptr;
@@ -30,7 +38,13 @@ typedef struct s_img {
 }				t_img;
 
 /// MAP PARSING
-int		open_map(char *file_name);
+t_map	init_tmap(t_map *map);
+int		valid_wall_line(t_map map, char *line, int last);
+int		valid_line(t_map *map, char	*line);
+int		map_error(t_map *map);
+int		open_map(char *file_name, t_map *map);
+int		map_check(t_map *map);
+int		map_parsing(char *file, t_map *map);
 
 /// GRAPHIC FUNCTIONS
 int		create_window(void);
