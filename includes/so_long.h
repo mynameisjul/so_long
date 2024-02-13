@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:21:19 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/13 12:48:18 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/13 16:15:18 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,10 @@ int		map_error(t_map *map);
 int		open_map(char *file_name, t_map *map);
 int		map_check(t_map *map);
 int		map_parsing(char *file, t_map *map);
+
+/// PATH FINDING
+int 	recurs_path_find(char **m, t_map *cpmap, t_map map, int x, int y);
+int		find_path(t_map *map);
 
 /// GRAPHIC FUNCTIONS
 int		create_window(void);

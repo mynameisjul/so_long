@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 12:31:22 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/13 12:18:47 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/13 16:48:40 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@
 
 /// ERROR MESSAGES
 # define INVALID_MAP "Invalid map: maybe stop putting random things in it?\n"
-# define OVERSIZE_MAP "Map way too big bro, way too big\n"
-# define MALLOC_ERR "Failed to malloc data"
+# define OVERSIZE_MAP "Map way too big bro, way too big (OVERSIZE MAP)\n"
+# define MALLOC_ERR "Failed to malloc data (MALLOC ERROR)\n"
+# define NO_PATH "No way you're getting out with all the coins (NO PATH)\n"
 
 #endif

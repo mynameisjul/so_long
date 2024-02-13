@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 11:31:49 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/13 12:50:31 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/13 14:26:57 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,3 @@ int	map_parsing(char *file, t_map *map)
 	map->map_data[i] = 0;
 	return (close(map->fd), 1);
 }
-
-// int	valid_path(char **map)
-// {
-	
-// }
