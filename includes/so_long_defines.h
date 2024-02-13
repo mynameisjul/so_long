@@ -6,12 +6,17 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 12:31:22 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/12 15:15:36 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/13 12:18:47 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_DEFINES_H
 # define SO_LONG_DEFINES_H
+
+/// BONUS
+# ifndef BONUS
+#  define BONUS 0
+# endif
 
 /// COORDINATES
 # define X 0
@@ -29,6 +34,7 @@
 # define COIN 'C'
 # define EXIT 'E'
 # define PLAYER 'P'
+# define ENEMIES 'X'
 
 /// ERROR MESSAGES
 # define INVALID_MAP "Invalid map: maybe stop putting random things in it?\n"

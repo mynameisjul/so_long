@@ -6,7 +6,7 @@
 #    By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/23 16:04:07 by jblaye            #+#    #+#              #
-#    Updated: 2024/02/12 14:10:52 by jblaye           ###   ########.fr        #
+#    Updated: 2024/02/13 12:21:23 by jblaye           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,9 @@ libft:
 
 $(NAME):	$(OBJ)
 			$(CC) $(CLFAGS) $(MLXFLAG) -o $(NAME) $(HEADERS) $(SRC) ./libft/libft.a ./mlx-linux/libmlx_Linux.a ./mlx-linux/libmlx.a 
+
+bonus:		# objs et libft #
+			# ajouter BONUS=1
 
 test:		libft $(TEST_OBJ)
 			$(CC) $(CFLAGS) $(MLXFLAG) -o $(TEST_NAME) $(HEADERS) $(TEST_SRC) ./libft/libft.a ./mlx-linux/libmlx_Linux.a ./mlx-linux/libmlx.a

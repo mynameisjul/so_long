@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:21:19 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/12 16:05:15 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/13 12:48:18 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 typedef struct s_map {
 	char	**map_data;
 	int		fd;
+	int		isvalid;
 	int		size[2];
 	int		nb_coins;
 	int		player[2];
@@ -37,10 +38,15 @@ typedef struct s_img {
 	int		endian;
 }				t_img;
 
+
+/// MAP CHECK UTILS
+int		isvalidmapchar(char c);
+
 /// MAP PARSING
+int		fetch_element_coordinates(t_map *map, t_read read, int i);
 t_map	init_tmap(t_map *map);
 int		valid_wall_line(t_map map, char *line, int last);
-int		valid_line(t_map *map, char	*line);
+int		valid_line(t_map *map, t_read read);
 int		map_error(t_map *map);
 int		open_map(char *file_name, t_map *map);
 int		map_check(t_map *map);
