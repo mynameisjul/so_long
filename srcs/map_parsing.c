@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 11:31:49 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/12 16:04:05 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/13 12:50:31 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,38 +14,30 @@
 
 int	map_check(t_map *map)
 {
-	char	*line;
-	int		isvalid;
+	t_read	read;
 	int		valid_last_line;
 
-	isvalid = 0;
+	read.count = 0;
 	valid_last_line = 0;
-	oget_next_line(map->fd, &line);
-	if (!line)
+	ognl_nb(map->fd, &read);
+	if (!read.line)
 		return (close(map->fd), 0);
-	map->size[X] = ft_strlen(line) - 1;
+	map->size[X] = ft_strlen(read.line) - 1;
 	map->size[Y] = 1;
-	isvalid = valid_wall_line(*map, line, 0);
-	if (isvalid == 0)
-		return (close(map->fd), free(line), isvalid);
-	while (free(line), oget_next_line(map->fd, &line) != 0 && map->size[Y] < 33)
+	map->isvalid = valid_wall_line(*map, read.line, 0);
+	if (map->isvalid == 0)
+		return (close(map->fd), free(read.line), map->isvalid);
+	while (free(read.line), ognl_nb(map->fd, &read) != 0 && map->size[Y] < 33)
 	{
-		isvalid = valid_line(map, line);
-		if (isvalid == 0)
-			return (close(map->fd), free(line), isvalid);
+		map->isvalid = valid_line(map, read);
+		if (map->isvalid == 0)
+			return (close(map->fd), free(read.line), map->isvalid);
 		map->size[Y]++;
-		valid_last_line = valid_wall_line(*map, line, 1);
+		valid_last_line = valid_wall_line(*map, read.line, 1);
 	}
 	if (valid_last_line == 0)
 		return (close(map->fd), 0);
-	return (close(map->fd), isvalid);
-}
-
-int	map_check_norminette(t_map map)
-{
-	if (map.player != 1 || map.nb_coins < 1 || map.exit != 1)
-		return (0);
-	return (1);
+	return (close(map->fd), map->isvalid);
 }
 
 int	map_error(t_map *map)
@@ -65,7 +57,7 @@ int	map_parsing(char *file, t_map *map)
 	i = 0;
 	if (open_map(file, map) == -1)
 		return (0);
-	if (map_check(map) == 0 || map_check_norminette(*map) == 0)
+	if (map_check(map) == 0 ||  map->nb_coins < 1)
 		return (ft_dprintf(2, INVALID_MAP), 0);
 	if (map->size[X] > MAX_WIDTH || map->size[Y] > MAX_HEIGHT)
 		return (ft_dprintf(2, OVERSIZE_MAP), 0);
@@ -86,7 +78,7 @@ int	map_parsing(char *file, t_map *map)
 	return (close(map->fd), 1);
 }
 
-int	valid_path(char **map)
-{
+// int	valid_path(char **map)
+// {
 	
-}
+// }
