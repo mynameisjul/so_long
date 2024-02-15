@@ -6,50 +6,49 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 13:44:39 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/14 16:41:24 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/15 17:58:57 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	*create_window(int x, int y)
+t_mlx_data	create_window(int x, int y)
 {
-	void	*mlx;
-	void	*mlx_win;
+	t_mlx_data	result;
 
-	mlx = mlx_init();
-	if (!mlx)
-		return (ft_dprintf(2, WINDOW), NULL);
-	mlx_win = mlx_new_window(mlx, x * TILE, (y + 2) * TILE, NAME);
-	if (!mlx_win)
-		return (ft_dprintf(2, WINDOW), NULL);
-	return (mlx);
-}
-
-int	push_tile(void *mlx, char *relative_path, int x, int y)
-{
-	int	a;
-	int	b;
+	result.mlx_win = NULL;
+	result.mlx = mlx_init();
+	if (!result.mlx)
+		return (ft_dprintf(2, WINDOW), result);
+	result.mlx_win = mlx_new_window(result.mlx, x * TILE, (y + 1) * TILE, NAME);
+	if (!result.mlx_win)
+		return (ft_dprintf(2, WINDOW), result);
 	
-	a = x * TILE;
-	b = y * TILE;
-	if (mlx_xpm_file_to_image(mlx, relative_path, &a, &b) == 0)
-		return (ft_dprintf(2, LOAD_ASSETS), 0);
-	return (1);
+	return (result);
 }
 
-// void	free_all(void *mlx, void *mlx_win, t_img *img)
-// {
-// 	mlx_destroy_image(mlx, img);
-// 	mlx_destroy_display(mlx);
-// 	mlx_clear_window(mlx, mlx_win);
-// 	mlx_destroy_window(mlx, mlx_win);
-// 	free(mlx);
-// }
 
-// void	terminate_window(void *mlx, void *mlx_win, t_img *img)
-// {
-// 	mlx_hook(mlx_win, 17, 0, mlx_loop_end, mlx);
-// 	mlx_loop(mlx);
-// 	free_all(mlx, mlx_win, img);
-// }
+
+void	free_all(void *mlx, void *mlx_win, void **assets)
+{
+	int	i;
+
+	i = NB_ASSETS;
+	while (i > 0)
+	{
+		mlx_destroy_image(mlx, assets[i - 1]);
+		i--;
+	}
+	mlx_destroy_display(mlx);
+	mlx_clear_window(mlx, mlx_win);
+	mlx_destroy_window(mlx, mlx_win);
+	free(mlx);
+}
+
+void	terminate_window(t_mlx_data mlx, t_map *map, void **assets)
+{
+	mlx_hook(mlx.mlx_win, 17, 0, mlx_loop_end, mlx.mlx);
+	mlx_key_hook(mlx.mlx_win, ft_hook, map);
+	mlx_loop(mlx.mlx);
+	free_all(mlx.mlx, mlx.mlx_win, assets);
+}
