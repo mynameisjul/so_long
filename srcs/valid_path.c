@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 14:27:08 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/13 16:30:59 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/16 20:22:47 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,5 @@ int	find_path(t_map *map)
 	ft_fsplit(path_map.map_data);
 	if (path_map.nb_coins == map->nb_coins && path_map.exit[X] == 1)
 		return (1);
-	return (0);
+	return (ft_dprintf(2, NO_PATH), 0);
 }
