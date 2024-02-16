@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 12:31:22 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/15 17:36:39 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/16 20:04:44 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,21 @@
 # define WALL '1'
 # define COIN 'C'
 # define EXIT 'E'
-# define OPEM_EXIT 'e'
+# define OPEN_EXIT 'e'
 # define COL_COIN 'c'
 # define PLAY_ON_COIN 'p'
+# define LPLAYER 'Q'
+# define LPLAY_ON_COIN 'q'
+# define PLAY_ON_CCOIN 'R'
+# define LPLAY_ON_CCOIN 'r'
 # define PLAYER 'P'
 # define ENEMIES 'X'
+# define LENEMIES 'x'
+# define DEAD 'D'
+
 
 /// MAP TILES
-# define NB_ASSETS 20
+# define NB_ASSETS 25
 # define T_SPACE 0
 # define T_TL 1
 # define T_TR 2
@@ -66,6 +73,12 @@
 # define T_P3 18
 # define T_P4 15
 # define T_ENEMY 19
+# define T_LP1 20
+# define T_LP2 21
+# define T_LP3 22
+# define T_LP4 23
+# define T_LPLAYER_COIN 24
+# define T_LPLAYER 23
 
 /// PLAYER MOVES
 # define ESCAPE 65307
@@ -73,6 +86,14 @@
 # define LEFT 'a'
 # define DOWN 's'
 # define RIGHT 'd'
+
+/// END
+# define RUN 1
+# define LOSE 0
+# define WIN 2
+
+/// LOOP
+# define SPEED 500
 
 /// ERROR MESSAGES
 # define INVALID_MAP "Invalid map: maybe stop putting random things in it?\n"

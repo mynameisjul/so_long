@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:21:19 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/15 17:52:25 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/16 19:56:13 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,10 @@ typedef struct s_img {
 }				t_img;
 
 typedef struct s_data {
-	t_mlx_data	data;
-	t_map		*map;
+	t_mlx_data	mlx;
+	t_map		map;
+	void		**assets;
+	int			count;
 }				t_data;
 
 /// MAP CHECK UTILS
@@ -67,19 +69,27 @@ int			find_path(t_map *map);
 
 /// GRAPHIC FUNCTIONS ///
 
-/// WINDOW MANAGEMENT AND GRAPHIC INITIALISATION
+/// WINDOW MANAGEMENT
 t_mlx_data	create_window(int x, int y);
-int 		push_tile(t_mlx_data mlx, void *asset, int x_coord, int y_coord);
+int			free_all(t_data *data);
+void		terminate_window(t_data *data);
+
+/// ASSETS LOADING
 void		*xpm_to_image(void *mlx, char *relative_path);
-int			render_border(t_mlx_data mlx, t_map map, void **assets);
-int			render_fix_content(t_mlx_data mlx, t_map map, void **assets);
-int			render_moving_content(t_mlx_data mlx, t_map map, void **assets);
 void		free_non_null(void ***table, int size);
 void		**assets_table(void *mlx);
-void		free_all(void *mlx, void *mlx_win, void **assets);
-void		terminate_window(t_mlx_data mlx, t_map *map, void **assets);
+
+/// MAP RENDER
+int			push_tile(t_mlx_data mlx, void *asset, int x_coord, int y_coord);
+int			render_border(t_data *data);
+int			render_fix_content(t_mlx_data mlx, t_map map, void **assets);
+int			render_player(t_data *data);
+int			render_moving_content(t_mlx_data mlx, t_map map, void **assets);
+int			render(t_data *data);
 
 /// PLAYER MOVES MANAGEMENT
-int			ft_hook(int	keycode, t_map *map);
+int			ft_hook(int	keycode, t_data *data);
+int			player_up(t_data *data);
+int			player_down(t_data *data);
 
 #endif
