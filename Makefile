@@ -16,14 +16,14 @@ TEST_NAME = test_so_long
 SRC = srcs/*.c main.c
 TEST_SRC = srcs/*.c test.c
 
-HEADERS = -I includes/so_long.h -I /usr/includes -I mlx_linux -O3 
+HEADERS = -I /includes -I /usr/includes -I mlx-linux -O3 
 
 OBJ = $(SRC:.c=.o)
 TEST_OBJ = $(TEST_SRC:.c=.o)
 
 CC = cc
 CFLAGS = -g3 -Wall -Wextra -Werror
-MLXFLAG = -l Xext -l X11 -lm
+MLXFLAG = -Lmlx-linux -lmlx_Linux -lXext -lX11 -lm
 RM = rm -f
 
 .c.o:
@@ -35,13 +35,13 @@ libft:
 			make -C ./libft
 
 $(NAME):	$(OBJ)
-			$(CC) $(CLFAGS) $(MLXFLAG) -o $(NAME) $(HEADERS) $(SRC) ./libft/libft.a ./mlx-linux/libmlx_Linux.a ./mlx-linux/libmlx.a 
+			$(CC) $(CLFAGS) $(HEADERS) $(SRC) ./libft/libft.a ./mlx-linux/libmlx_Linux.a ./mlx-linux/libmlx.a $(MLXFLAG) -o $(NAME)
 
 bonus:		# objs et libft #
 # ajouter BONUS=1
 
 test:		libft $(TEST_OBJ)
-			$(CC) $(CFLAGS) $(MLXFLAG) -o $(TEST_NAME) $(HEADERS) $(TEST_SRC) ./libft/libft.a ./mlx-linux/libmlx_Linux.a ./mlx-linux/libmlx.a
+			$(CC) $(CFLAGS) $(HEADERS) $(TEST_SRC) ./libft/libft.a ./mlx-linux/libmlx_Linux.a ./mlx-linux/libmlx.a $(MLXFLAG) -o $(TEST_NAME)
 
 clean:
 			rm -f $(OBJ)
