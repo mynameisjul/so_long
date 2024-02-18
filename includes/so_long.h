@@ -11,85 +11,91 @@
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
-# define SO_LONG_H
+#define SO_LONG_H
 
-# include <stdio.h>
-# include <fcntl.h>
-# include "../libft/libft.h"
-# include "../mlx-linux/mlx.h"
-# include "so_long_defines.h"
+#include <stdio.h>
+#include <fcntl.h>
+#include "../libft/libft.h"
+#include "../mlx-linux/mlx.h"
+#include "so_long_defines.h"
 
-typedef struct s_map {
-	char	**map_data;
-	int		fd;
-	int		isvalid;
-	int		size[2];
-	int		nb_coins;
-	int		player[2];
-	int		exit[2];
-	int		enemies;
-}				t_map;
+typedef struct s_map
+{
+	char **map_data;
+	int fd;
+	int isvalid;
+	int size[2];
+	int nb_coins;
+	int player[2];
+	int exit[2];
+	int enemies;
+} t_map;
 
-typedef struct s_mlx_data {
-	void	*mlx;
-	void	*mlx_win;
-}				t_mlx_data;
+typedef struct s_mlx_data
+{
+	void *mlx;
+	void *mlx_win;
+} t_mlx_data;
 
-typedef struct s_img {
-	void	*img_ptr;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}				t_img;
+typedef struct s_img
+{
+	void *img_ptr;
+	char *addr;
+	int bits_per_pixel;
+	int line_length;
+	int endian;
+} t_img;
 
-typedef struct s_data {
-	t_mlx_data	mlx;
-	t_map		map;
-	void		**assets;
-	int			count;
-}				t_data;
+typedef struct s_data
+{
+	t_mlx_data mlx;
+	t_map map;
+	void **assets;
+	int count;
+} t_data;
 
 /// MAP CHECK UTILS
-int			isvalidmapchar(char c);
+int isvalidmapchar(char c);
 
 /// MAP PARSING
-int			fetch_element_coordinates(t_map *map, t_read read, int i);
-t_map		init_tmap(t_map *map);
-int			valid_wall_line(t_map map, char *line, int last);
-int			valid_line(t_map *map, t_read read);
-int			map_error(t_map *map);
-int			open_map(char *file_name, t_map *map);
-int			map_check(t_map *map);
-int			map_parsing(char *file, t_map *map);
+int fetch_element_coordinates(t_map *map, t_read read, int i);
+t_map init_tmap(t_map *map);
+int valid_wall_line(t_map map, char *line, int last);
+int valid_line(t_map *map, t_read read);
+int map_error(t_map *map);
+int open_map(char *file_name, t_map *map);
+int map_check(t_map *map);
+int map_parsing(char *file, t_map *map);
 
 /// PATH FINDING
-int 		recurs_path_find(char **m, t_map *cpmap, t_map map, int x, int y);
-int			find_path(t_map *map);
+int recurs_path_find(char **m, t_map *cpmap, t_map map, int x, int y);
+int find_path(t_map *map);
 
 /// GRAPHIC FUNCTIONS ///
 
 /// WINDOW MANAGEMENT
-t_mlx_data	create_window(int x, int y);
-int			free_all(t_data *data);
-void		terminate_window(t_data *data);
+t_mlx_data create_window(int x, int y);
+int free_all(t_data *data);
+void terminate_window(t_data *data);
 
 /// ASSETS LOADING
-void		*xpm_to_image(void *mlx, char *relative_path);
-void		free_non_null(void ***table, int size);
-void		**assets_table(void *mlx);
+void *xpm_to_image(void *mlx, char *relative_path);
+void free_non_null(void ***table, int size);
+void **assets_table(void *mlx);
 
 /// MAP RENDER
-int			push_tile(t_mlx_data mlx, void *asset, int x_coord, int y_coord);
-int			render_border(t_data *data);
-int			render_fix_content(t_mlx_data mlx, t_map map, void **assets);
-int			render_player(t_data *data);
-int			render_moving_content(t_mlx_data mlx, t_map map, void **assets);
-int			render(t_data *data);
+int push_tile(t_mlx_data mlx, void *asset, int x_coord, int y_coord);
+int render_border(t_data *data);
+int render_fix_content(t_mlx_data mlx, t_map map, void **assets);
+int render_player(t_data *data);
+int render_moving_content(t_mlx_data mlx, t_map map, void **assets);
+int render(t_data *data);
 
 /// PLAYER MOVES MANAGEMENT
-int			ft_hook(int	keycode, t_data *data);
-int			player_up(t_data *data);
-int			player_down(t_data *data);
+int ft_hook(int keycode, t_data *data);
+int player_up(t_data *data);
+int player_down(t_data *data);
+int player_left(t_data *data);
+int player_right(t_data *data);
 
 #endif
