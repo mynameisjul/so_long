@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 12:31:22 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/19 13:16:30 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/19 14:42:01 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@
 # define RUN 1
 # define LOSE 0
 # define WIN 2
+# define BYE -1
 
 /// LOOP
 # define SPEED 100

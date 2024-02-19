@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 18:53:23 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/19 10:33:51 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/19 14:00:43 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ void whole_map_update(t_data *data, int x, int y)
 		data->map.map_data[x][y] = COL_COIN;
 	if (data->map.map_data[x][y] == PLAYER || data->map.map_data[x][y] == LPLAYER)
 		data->map.map_data[x][y] = SPACE;
-	// if ()
 	if (data->map.nb_coins == 0)
 		data->map.map_data[data->map.exit[Y]][data->map.exit[X]] = OPEN_EXIT;
 }

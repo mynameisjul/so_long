@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 17:45:12 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/19 12:34:59 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/19 15:15:06 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,35 +15,40 @@
 int ft_hook(int keycode, t_data *data)
 {
 	int	steps;
-	int	win;
 
 	steps = data->steps;
 	if (keycode == ESCAPE)
+	{
 		mlx_loop_end(data->mlx.mlx);
+		data->win = BYE;
+		return (data->win);
+	}
 	if (keycode == UP)
-		win = player_up(data);
+		data->win = player_up(data);
 	if (keycode == DOWN)
-		win = player_down(data);
+		data->win = player_down(data);
 	if (keycode == LEFT)
-		win = player_left(data);
+		data->win = player_left(data);
 	if (keycode == RIGHT)
-		win = player_right(data);
+		data->win = player_right(data);
+	if ((data->win == WIN || data->win == LOSE) && steps == data->steps)
+		data->steps++;
 	if (data->steps > steps)
 		ft_printf("Number of steps = %d\n", data->steps);
-	if (win == WIN)
-	{
-		data->level++;
+	if (data->win == WIN || data->win == LOSE)
 		mlx_loop_end(data->mlx.mlx);
-	}
-	if (win == LOSE)
-		mlx_loop_end(data->mlx.mlx);
-	return (win);
+	render_counts(data);
+	return (data->win);
 }
 
 int ft_level_hook(int keycode, t_data *data)
 {
 	if (keycode == ESCAPE)
-		return (mlx_loop_end(data->mlx.mlx), 0);
+	{
+		mlx_loop_end(data->mlx.mlx);
+		data->win = BYE;
+		return (data->win);
+	}
 	if (keycode == 'n')
 	{
 		data->level++;

@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 10:32:54 by julieblaye        #+#    #+#             */
-/*   Updated: 2024/02/19 13:44:46 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/19 15:31:00 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,21 @@ int	main(void)
 	t_data		data;
 
 	init_tdata(&data);
-	while (data.level < 10 && data.win == RUN)
+	while (data.level < 10 && (data.win == RUN || data.win == WIN))
 	{
-		data.mlx = create_window(LEVEL_SIZE, LEVEL_SIZE);
+		data.mlx = create_window(LEVEL_SIZE, 4);
 		data.assets = assets_table(data.mlx.mlx);
 		if (!data.assets)
 			return (0);
 		terminate_level_window(&data);
+		if (data.win == BYE)
+			return (0);
 		if (data.level == -1)
 			return (0);
-		printf("LEVEL %d\n", data.level);
+		init_tmap(&(data.map));
 		if (map_parsing(level_char(data.level), &(data.map)) == 0 
 			|| find_path(&(data.map)) == 0)
-			return (ft_dprintf(2, "on rentre la\n"), 0);
+			return (0);
 		data.mlx = create_window(data.map.size[X], data.map.size[Y]);
 		if (!data.mlx.mlx_win)
 			return (ft_dprintf(2, WINDOW), 0);
@@ -39,12 +41,14 @@ int	main(void)
 		if (!data.assets)
 			return (0);
 		terminate_window(&data);
-		printf("LEVEL apres %d\n", data.level);
+		data.steps = 0;
 	}
-	data.mlx = create_window(LEVEL_SIZE, LEVEL_SIZE);
-	data.assets = assets_table(data.mlx.mlx);
-	if (!data.assets)
+	if (data.win == BYE)
 		return (0);
-	terminate_level_window(&data);
+	// data.mlx = create_window(LEVEL_SIZE, 3);
+	// data.assets = assets_table(data.mlx.mlx);
+	// if (!data.assets)
+	// 	return (0);
+	// terminate_level_window(&data);
 	return (0);
 }

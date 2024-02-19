@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:21:19 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/19 13:22:00 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/19 15:12:25 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ int			find_path(t_map *map);
 t_mlx_data	create_window(int x, int y);
 void		free_all(t_data *data);
 void		terminate_window(t_data *data);
+int			custom_loop_end(t_data *data);
 
 /// ASSETS LOADING
 void		*xpm_to_image(void *mlx, char *relative_path);
@@ -110,6 +111,7 @@ int			render_fix_content(t_mlx_data mlx, t_map map, void **assets);
 int			render_player(t_data *data);
 int			render_moving_content(t_mlx_data mlx, t_map map, void **assets);
 int			render(t_data *data);
+int			render_counts(t_data *data);
 
 /// PLAYER MOVES MANAGEMENT
 int			ft_hook(int keycode, t_data *data);

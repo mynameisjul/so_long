@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 13:44:39 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/19 13:30:39 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/19 15:15:27 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,12 @@ t_mlx_data	create_window(int x, int y)
 		return (ft_dprintf(2, WINDOW), result);
 	
 	return (result);
+}
+
+int	custom_loop_end(t_data *data)
+{
+	data->win = BYE;
+	return (mlx_loop_end(data->mlx.mlx));
 }
 
 void	free_all(t_data *data)
@@ -52,7 +58,7 @@ void	free_all(t_data *data)
 void	terminate_level_window(t_data *data)
 {
 	render_level_window(data);
-	mlx_hook(data->mlx.mlx_win, 17, 0, mlx_loop_end, data->mlx.mlx);
+	mlx_hook(data->mlx.mlx_win, 17, 0, &custom_loop_end, data);
 	mlx_key_hook(data->mlx.mlx_win, ft_level_hook, data);
 	mlx_loop(data->mlx.mlx);
 	free_all(data);
@@ -60,8 +66,9 @@ void	terminate_level_window(t_data *data)
 
 void	terminate_window(t_data *data)
 {
+	render_bottom_margin(data);
 	mlx_loop_hook(data->mlx.mlx, &render, data);
-	mlx_hook(data->mlx.mlx_win, 17, 0, mlx_loop_end, data->mlx.mlx);
+	mlx_hook(data->mlx.mlx_win, 17, 0, &custom_loop_end, data);
 	mlx_key_hook(data->mlx.mlx_win, ft_hook, data);
 	mlx_loop(data->mlx.mlx);
 	free_all(data);
