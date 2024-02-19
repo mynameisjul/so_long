@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 17:45:12 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/16 20:16:49 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/19 12:34:59 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,40 @@
 
 int ft_hook(int keycode, t_data *data)
 {
-	// if (keycode == EXIT)
-	printf("x = %d\ny = %d\n\n", data->map.player[X], data->map.player[Y]);
+	int	steps;
+	int	win;
+
+	steps = data->steps;
+	if (keycode == ESCAPE)
+		mlx_loop_end(data->mlx.mlx);
 	if (keycode == UP)
-		return (player_up(data));
+		win = player_up(data);
 	if (keycode == DOWN)
-		return (player_down(data));
+		win = player_down(data);
 	if (keycode == LEFT)
-		return (player_left(data));
+		win = player_left(data);
 	if (keycode == RIGHT)
-		return (player_right(data));
-	// map->player[X]++;
-	// map->map_data[map->player[Y]][map->player[X] - 1] = SPACE;
-	// push_tile()
-	// map->map_data[map->player[Y]][map->player[X]] = PLAYER;
-	// printf("ca bouge\n");
-	return (1);
+		win = player_right(data);
+	if (data->steps > steps)
+		ft_printf("Number of steps = %d\n", data->steps);
+	if (win == WIN)
+	{
+		data->level++;
+		mlx_loop_end(data->mlx.mlx);
+	}
+	if (win == LOSE)
+		mlx_loop_end(data->mlx.mlx);
+	return (win);
+}
+
+int ft_level_hook(int keycode, t_data *data)
+{
+	if (keycode == ESCAPE)
+		return (mlx_loop_end(data->mlx.mlx), 0);
+	if (keycode == 'n')
+	{
+		data->level++;
+		return (mlx_loop_end(data->mlx.mlx), 1);
+	}
+	return (0);
 }
