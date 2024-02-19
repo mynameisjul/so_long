@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 12:32:29 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/13 12:44:41 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/19 13:39:16 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,26 @@ t_map	init_tmap(t_map *map)
 	map->size[Y] = 0;
 	map->enemies = 0;
 	return (*map);
+}
+
+t_data	init_tdata(t_data *data)
+{
+	data->map.map_data = NULL;
+	data->map.fd = -1;
+	data->map.isvalid = 0;
+	data->map.player[X] = -1;
+	data->map.player[Y] = -1;
+	data->map.nb_coins = 0;
+	data->map.exit[X] = -1;
+	data->map.exit[Y] = -1;
+	data->map.size[X] = 0;
+	data->map.size[Y] = 0;
+	data->map.enemies = 0;
+	data->count = 0;
+	data->steps = 0;
+	data->level = -1;
+	data->win = RUN;
+	return (*data);
 }
 
 int	open_map(char *file_name, t_map *map)

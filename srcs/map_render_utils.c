@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 15:18:11 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/16 19:33:22 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/19 10:19:48 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,24 @@ int push_tile(t_mlx_data mlx, void *asset, int x_coord, int y_coord)
 	return (1);
 }
 
+int	render_bottom_margin(t_data *data)
+{
+	int	i;
+	
+	i = 1;
+	if (push_tile(data->mlx, data->assets[T_LOWERBORDER], 0, data->map.size[Y]) == 0
+		|| push_tile(data->mlx, data->assets[T_LOWERBORDER], data->map.size[X] - 1,
+						data->map.size[Y]) == 0)
+		return (0);
+	while (i < data->map.size[X] - 1)
+ 	{
+		if (push_tile(data->mlx, data->assets[T_LOWERBORDER], i, data->map.size[Y]) == 0)
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 int	render_border(t_data *data)
 {
 	int	i;
@@ -32,8 +50,8 @@ int	render_border(t_data *data)
 	if (push_tile(data->mlx, data->assets[T_TL], 0, 0) == 0
 		|| push_tile(data->mlx, data->assets[T_TR], data->map.size[X] - 1, 0) == 0
 		|| push_tile(data->mlx, data->assets[T_BL], 0, data->map.size[Y] - 1) == 0
-		|| push_tile(data->mlx, data->assets[T_BR], data->map.size[X] - 1, 
-					data->map.size[Y] - 1) == 0)
+		|| push_tile(data->mlx, data->assets[T_BR], data->map.size[X] - 1,
+						data->map.size[Y] - 1) == 0)
 		return (0);
 	while (i < data->map.size[X] - 1)
  	{
