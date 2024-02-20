@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 10:40:45 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/19 15:29:57 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/20 09:14:05 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,13 +89,13 @@ int	render_level_window(t_data	*data)
 		return (ft_dprintf(2, LOAD_ASSETS), 0);
 	if (data->level == -1)
 		return (mlx_string_put(data->mlx.mlx, data->mlx.mlx_win, TILE * 2,
-								TILE * 3 - TILE / 2, 0x0, "Press 'n' to start"), 1);
-	if (data->level < 10)
+								TILE * 3 - TILE / 3, 0x0, "Press 'n' to start"), 1);
+	if (data->level < 9)
 	return (mlx_string_put(data->mlx.mlx, data->mlx.mlx_win, TILE * 2,
-								TILE * 3, 0x0, "Congratulations! You won! Press 'n' to go to the next level"), 1);
-	if (data->level == 10)
+								TILE * 3 - TILE / 3, 0x0, "Congratulations! You won! Press 'n' to go to the next level"), 1);
+	if (data->level == 9)
 		return (mlx_string_put(data->mlx.mlx, data->mlx.mlx_win, TILE * 2,
-								TILE * 3, 0x0, "Congratulations! You won the game"), 1);
+								TILE * 3 - TILE / 3, 0x0, "Congratulations! You won the game"), 1);
 	return (0);
 }
 

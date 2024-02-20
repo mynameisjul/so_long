@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 13:44:39 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/19 15:15:27 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/20 09:07:33 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ void	terminate_level_window(t_data *data)
 void	terminate_window(t_data *data)
 {
 	render_bottom_margin(data);
+	render_counts(data);
 	mlx_loop_hook(data->mlx.mlx, &render, data);
 	mlx_hook(data->mlx.mlx_win, 17, 0, &custom_loop_end, data);
 	mlx_key_hook(data->mlx.mlx_win, ft_hook, data);
