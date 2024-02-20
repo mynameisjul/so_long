@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 10:33:54 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/19 14:04:36 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/20 10:19:44 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,11 @@ int player_left(t_data *data)
 	y = data->map.player[X] - 1;
 	if (y == 0 || data->map.map_data[x][y] == WALL || data->map.map_data[x][y] == EXIT)
 	{
-		data->map.map_data[x][y + 1] = LPLAYER;
+		if (data->map.map_data[x][y + 1] == PLAYER)
+			data->map.map_data[x][y + 1] = LPLAYER;
+		if (data->map.map_data[x][y + 1] == PLAY_ON_COIN
+			|| data->map.map_data[x][y + 1] == PLAY_ON_CCOIN)
+			data->map.map_data[x][y + 1] = LPLAY_ON_CCOIN;
 		return (RUN);
 	}
 	if (data->map.map_data[x][y] == ENEMIES)
@@ -95,7 +99,11 @@ int player_right(t_data *data)
 	y = data->map.player[X] + 1;
 	if (y == data->map.size[X] || data->map.map_data[x][y] == WALL || data->map.map_data[x][y] == EXIT)
 	{
-		data->map.map_data[x][y - 1] = PLAYER;
+		if (data->map.map_data[x][y + 1] == LPLAYER)
+			data->map.map_data[x][y + 1] = PLAYER;
+		if (data->map.map_data[x][y + 1] == LPLAY_ON_COIN
+			|| data->map.map_data[x][y + 1] == LPLAY_ON_CCOIN)
+			data->map.map_data[x][y + 1] = PLAY_ON_CCOIN;
 		return (RUN);
 	}
 	if (data->map.map_data[x][y] == ENEMIES)
