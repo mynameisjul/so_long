@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:21:19 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/20 12:21:22 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/20 14:07:07 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct s_map
 	int nb_coins;
 	int player[2];
 	int exit[2];
-	int enemies;
+	int	enemy;
 }				t_map;
 
 typedef struct s_mlx_data
@@ -55,6 +55,7 @@ typedef struct s_data
 	int	steps;
 	int	level;
 	int	win;
+	int enemy_speed;
 }				t_data;
 
 /////////////////////////////////

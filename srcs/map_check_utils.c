@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 12:32:29 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/20 11:25:13 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/20 14:06:57 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_map	init_tmap(t_map *map)
 	map->player[Y] = -1;
 	map->exit[X] = -1;
 	map->exit[Y] = -1;
-	map->enemies = 0;
+	map->enemy = 0;
 	return (*map);
 }
 
@@ -37,6 +37,7 @@ t_data	init_tdata(t_data *data)
 	data->steps = 0;
 	data->level = -1;
 	data->win = RUN;
+	data->enemy_speed = 0;
 	return (*data);
 }
 

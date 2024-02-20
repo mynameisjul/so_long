@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 10:58:35 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/20 11:21:38 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/20 17:46:24 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,27 @@
 int	render_enemy_right(t_data *data, int x,int y)
 {
 	if (data->count < SPEED)
-		return (push_tile(data->mlx, data->assets[T_E1], x, y));
+		push_tile(data->mlx, data->assets[T_E1], x, y);
 	if (data->count >= SPEED && data->count < 2 * SPEED)
-		return (push_tile(data->mlx, data->assets[T_E2], x, y));
+		push_tile(data->mlx, data->assets[T_E2], x, y);
 	if (data->count >= 2 * SPEED && data->count < 3 * SPEED)
-		return (push_tile(data->mlx, data->assets[T_E3], x, y));
+		push_tile(data->mlx, data->assets[T_E3], x, y);
 	if (data->count >= 3 * SPEED && data->count < 4 * SPEED)
-		return (push_tile(data->mlx, data->assets[T_E4], x, y));
-	return (0);
+		push_tile(data->mlx, data->assets[T_E4], x, y);
+	return (1);
 }
 
 int	render_enemy_left(t_data *data, int x,int y)
 {
 	if (data->count < SPEED)
-		return (push_tile(data->mlx, data->assets[T_LE1], x, y));
+		push_tile(data->mlx, data->assets[T_LE1], x, y);
 	if (data->count >= SPEED && data->count < 2 * SPEED)
-		return (push_tile(data->mlx, data->assets[T_LE2], x, y));
+		push_tile(data->mlx, data->assets[T_LE2], x, y);
 	if (data->count >= 2 * SPEED && data->count < 3 * SPEED)
-		return (push_tile(data->mlx, data->assets[T_LE3], x, y));
+		push_tile(data->mlx, data->assets[T_LE3], x, y);
 	if (data->count >= 3 * SPEED && data->count < 4 * SPEED)
-		return (push_tile(data->mlx, data->assets[T_LE4], x, y));
-	return (0);
+		push_tile(data->mlx, data->assets[T_LE4], x, y);
+	return (1);
 }
 
 int	render_enemies(t_data *data)

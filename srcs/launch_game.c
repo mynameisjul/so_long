@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 09:42:49 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/20 10:11:02 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/20 13:58:15 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	launch_message_screen(t_data *data)
 int	launch_game(t_data *data)
 {
 	char	*level;
-
+ 
 	while (data->level < 10 && (data->win == RUN || data->win == WIN))
 	{
 		if (launch_message_screen(data) == 0)

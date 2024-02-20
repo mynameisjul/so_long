@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 13:44:39 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/20 09:52:16 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/20 16:19:48 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ t_mlx_data	create_window(int x, int y)
 int	custom_loop_end(t_data *data)
 {
 	data->win = BYE;
-	return (mlx_loop_end(data->mlx.mlx));
+	mlx_loop_end(data->mlx.mlx);
+	return (BYE);
 }
 
 void	free_all(t_data *data)
