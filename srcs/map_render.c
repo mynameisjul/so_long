@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:18:05 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/20 11:20:18 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/20 11:49:23 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,23 @@ int	render_counts(t_data *data)
 	char	*level;
 	char	*steps;
 
+	level = NULL;
 	if (render_bottom_margin(data) == 0)
 		return (0);
-	level = add_nbr_to_char(data->level, "Level number ");
+	if (data->level != -1)
+		level = add_nbr_to_char(data->level, "Level number ");
 	steps = add_nbr_to_char(data->steps, "Number of steps = ");
 	if (level)
+	{
 		mlx_string_put(data->mlx.mlx, data->mlx.mlx_win,
 						TILE, (data->map.size[Y] + 1) * TILE - 5, 0x0, level);
+		free(level);
+	}
 	if (steps)
+	{
 		mlx_string_put(data->mlx.mlx, data->mlx.mlx_win,
 						TILE, data->map.size[Y] * TILE + TILE / 2 - 5, 0x0, steps);
+		free(steps);
+	}
 	return (1);
 }
