@@ -6,7 +6,7 @@
 #    By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/23 16:04:07 by jblaye            #+#    #+#              #
-#    Updated: 2024/02/20 11:24:24 by jblaye           ###   ########.fr        #
+#    Updated: 2024/02/20 12:04:28 by jblaye           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,7 @@ fclean:		clean
 
 testfclean:
 			rm -f $(TEST_OBJ)
-			make -C ./libft clean
+			make -C ./libft fclean
 			rm -f $(TEST_NAME)
 
 re:			fclean all
