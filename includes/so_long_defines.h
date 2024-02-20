@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 12:31:22 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/19 14:42:01 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/20 11:24:31 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 /// BONUS
 # ifndef BONUS
-#  define BONUS 0
+#  define BONUS 1
 #endif
 
 /// NAME
@@ -51,7 +51,7 @@
 # define DEAD 'D'
 
 /// MAP TILES
-# define NB_ASSETS 25
+# define NB_ASSETS 34
 # define T_SPACE 0
 # define T_TL 1
 # define T_TR 2
@@ -80,6 +80,14 @@
 # define T_LPLAYER_COIN 24
 # define T_LPLAYER 23
 # define T_LOWERBORDER 25
+# define T_E1 26
+# define T_E2 27
+# define T_E3 28
+# define T_E4 29
+# define T_LE1 30
+# define T_LE2 31
+# define T_LE3 32
+# define T_LE4 33
 
 /// PLAYER MOVES
 # define ESCAPE 65307

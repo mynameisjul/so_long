@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:21:19 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/20 10:05:44 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/20 11:20:01 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,5 +124,11 @@ int			player_up(t_data *data);
 int			player_down(t_data *data);
 int			player_left(t_data *data);
 int			player_right(t_data *data);
+
+/////////////////////////////////
+/////// ENEMY MANAGEMENT ////////
+/////////////////////////////////
+
+int			render_enemies(t_data *data);
 
 #endif
