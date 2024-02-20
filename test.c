@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 10:32:54 by julieblaye        #+#    #+#             */
-/*   Updated: 2024/02/20 09:13:28 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/20 10:12:55 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,24 @@
 #include <stdlib.h>
 #include "includes/so_long.h"
 
-int	main(void)
+int	main(int ac, char **av)
 {
 	t_data		data;
 
 	init_tdata(&data);
-	while (data.level < 9 && (data.win == RUN || data.win == WIN))
+	if (ac == 2)
 	{
 		data.mlx = create_window(LEVEL_SIZE, 4);
 		data.assets = assets_table(data.mlx.mlx);
 		if (!data.assets)
 			return (0);
+		data.level = -2;
 		terminate_level_window(&data);
-		if (data.win == BYE)
-			return (0);
-		if (data.level == -1)
+		if (data.win == BYE || data.level == -1)
 			return (0);
 		init_tmap(&(data.map));
-		if (map_parsing(level_char(data.level), &(data.map)) == 0 
-			|| find_path(&(data.map)) == 0)
-			return (0);
+		if (map_parsing(av[1], &(data.map)) == 0 || find_path(&(data.map)) == 0)
+				return (0);
 		data.mlx = create_window(data.map.size[X], data.map.size[Y]);
 		if (!data.mlx.mlx_win)
 			return (ft_dprintf(2, WINDOW), 0);
@@ -41,14 +39,8 @@ int	main(void)
 		if (!data.assets)
 			return (0);
 		terminate_window(&data);
-		data.steps = 0;
 	}
-	if (data.win == BYE)
-		return (0);
-	data.mlx = create_window(LEVEL_SIZE, 3);
-	data.assets = assets_table(data.mlx.mlx);
-	if (!data.assets)
-		return (0);
-	terminate_level_window(&data);
+	else
+		return (launch_game(&data));
 	return (0);
 }
