@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 13:44:39 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/20 09:07:33 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/20 09:52:16 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void	free_all(t_data *data)
 	if (data->map.map_data)
 		ft_fsplit(data->map.map_data);
 	data->map.map_data = NULL;
+	data->steps = 0;
 	free(data->mlx.mlx);
 }
 
