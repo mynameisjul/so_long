@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:18:05 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/19 15:13:49 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/20 11:20:18 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ int	render(t_data *data)
 	if(render_border(data) == 0
 		|| render_fix_content(data->mlx, data->map, data->assets) == 0
 		|| render_moving_content(data->mlx, data->map, data->assets) == 0
-		|| render_player(data) == 0)
+		|| render_player(data) == 0
+		|| render_enemies(data) == 0)
 		return (ft_dprintf(2, LOAD_ASSETS), 0);
 	return (1);
 }

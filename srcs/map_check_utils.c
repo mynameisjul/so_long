@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 12:32:29 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/19 14:24:01 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/20 11:25:13 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	open_map(char *file_name, t_map *map)
 
 int	isvalidmapchar(char c)
 {
-	if (BONUS == 1 && c == ENEMIES)
+	if (c == ENEMIES || c == LENEMIES)
 		return (1);
 	if (c != WALL && c != COIN && c != SPACE && c != EXIT && c != PLAYER)
 		return (0);
