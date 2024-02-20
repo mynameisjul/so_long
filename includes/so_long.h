@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:21:19 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/19 15:12:25 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/20 10:05:44 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ int			render_level_window(t_data	*data);
 char		*level_char(int	level);
 void		terminate_level_window(t_data *data);
 int			ft_level_hook(int keycode, t_data *data);
+int			launch_message_screen(t_data *data);
+int			launch_game(t_data *data);
 
 /////////////////////////////////
 /////////// PARSING /////////////
