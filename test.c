@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 10:32:54 by julieblaye        #+#    #+#             */
-/*   Updated: 2024/02/19 15:31:00 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/20 09:13:28 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(void)
 	t_data		data;
 
 	init_tdata(&data);
-	while (data.level < 10 && (data.win == RUN || data.win == WIN))
+	while (data.level < 9 && (data.win == RUN || data.win == WIN))
 	{
 		data.mlx = create_window(LEVEL_SIZE, 4);
 		data.assets = assets_table(data.mlx.mlx);
@@ -45,10 +45,10 @@ int	main(void)
 	}
 	if (data.win == BYE)
 		return (0);
-	// data.mlx = create_window(LEVEL_SIZE, 3);
-	// data.assets = assets_table(data.mlx.mlx);
-	// if (!data.assets)
-	// 	return (0);
-	// terminate_level_window(&data);
+	data.mlx = create_window(LEVEL_SIZE, 3);
+	data.assets = assets_table(data.mlx.mlx);
+	if (!data.assets)
+		return (0);
+	terminate_level_window(&data);
 	return (0);
 }
