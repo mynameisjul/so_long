@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 09:42:49 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/20 13:58:15 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/21 12:51:48 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ int	launch_game(t_data *data)
 {
 	char	*level;
  
-	while (data->level < 10 && (data->win == RUN || data->win == WIN))
+	while (data->level < 6 && (data->win == RUN || data->win == WIN))
 	{
 		if (launch_message_screen(data) == 0)
-			return (free(level), 0);
-		if (data->level < 9)
+			return (0);
+		if (data->level < 6)
 		{
 			init_tmap(&(data->map));
 			level = level_char(data->level);
@@ -51,5 +51,5 @@ int	launch_game(t_data *data)
 			terminate_window(data);
 			}
 	}
-	return (free(level), 0);
+	return (0);
 }
