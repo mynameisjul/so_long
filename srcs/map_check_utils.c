@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 12:32:29 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/20 14:06:57 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/21 18:24:50 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,12 @@ int	open_map(char *file_name, t_map *map)
 		if (ft_strncmp(&file_name[len - 4], ".ber", 5) == 0 && len > 4)
 			map->fd = open(file_name, O_RDONLY, 0644);
 	}
-	if (map->fd == -1)
-		ft_dprintf(2, "Could not open map file\n");
 	return (map->fd);
 }
 
 int	isvalidmapchar(char c)
 {
-	if (c == ENEMIES || c == LENEMIES)
+	if ((c == ENEMIES || c == LENEMIES) && BONUS == 1)
 		return (1);
 	if (c != WALL && c != COIN && c != SPACE && c != EXIT && c != PLAYER)
 		return (0);
