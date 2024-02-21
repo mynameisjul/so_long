@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:21:19 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/21 17:21:13 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/21 17:54:32 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ void		terminate_level_window(t_data *data);
 int			ft_level_hook(int keycode, t_data *data);
 int			launch_message_screen(t_data *data);
 int			launch_game(t_data *data);
-int			render_text(t_data *data, int y, char **text);
 
 /////////////////////////////////
 /////////// PARSING /////////////
@@ -97,7 +96,7 @@ int			find_path(t_map *map);
 /////////////////////////////////
 
 /// WINDOW MANAGEMENT
-t_mlx_data	create_window(int x, int y);
+int			create_win(t_data *data, int x, int y);
 void		free_all(t_data *data);
 void		terminate_window(t_data *data);
 int			custom_loop_end(t_data *data);

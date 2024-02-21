@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:20:52 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/21 14:40:53 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/21 17:57:59 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int	main(int ac, char **av)
 	init_tdata(&data);
 	if (ac == 2)
 	{
-		data.mlx = create_window(LEVEL_SIZE, 4);
+		if (create_win(&data, LEVEL_SIZE, 4) == 0)
+			return (0);
 		data.assets = assets_table(data.mlx.mlx);
 		if (!data.assets)
 			return (0);
@@ -28,11 +29,9 @@ int	main(int ac, char **av)
 		if (data.win == BYE || data.level == -2)
 			return (0);
 		init_tmap(&(data.map));
-		if (map_parsing(av[1], &(data.map)) == 0 || find_path(&(data.map)) == 0)
+		if (map_parsing(av[1], &(data.map)) == 0 || find_path(&(data.map)) == 0
+			|| create_win(&data, data.map.size[X], data.map.size[Y]) == 0)
 			return (0);
-		data.mlx = create_window(data.map.size[X], data.map.size[Y]);
-		if (!data.mlx.mlx_win)
-			return (ft_dprintf(2, WINDOW), 0);
 		data.assets = assets_table(data.mlx.mlx);
 		if (!data.assets)
 			return (0);
