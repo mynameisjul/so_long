@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 13:44:39 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/21 15:01:43 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/21 17:28:05 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,13 @@ void	free_all(t_data *data)
 	}
 	if (data->assets)
 		free(data->assets);
-	mlx_destroy_window(data->mlx.mlx, data->mlx.mlx_win);
-	mlx_destroy_display(data->mlx.mlx);
+	if (data->mlx.mlx && data->mlx.mlx)
+	{
+		mlx_destroy_window(data->mlx.mlx, data->mlx.mlx_win);
+		data->mlx.mlx_win = NULL;
+		mlx_destroy_display(data->mlx.mlx);
+		data->mlx.mlx == NULL;
+	}
 	if (data->map.map_data)
 		ft_fsplit(data->map.map_data);
 	data->map.map_data = NULL;
