@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 10:40:45 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/21 17:18:59 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/21 17:38:14 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,18 +88,18 @@ int	render_level_window(t_data	*data)
 		return (ft_dprintf(2, LOAD_ASSETS), 0);
 	if (level_margin_render(data) == 0)
 		return (ft_dprintf(2, LOAD_ASSETS), 0);
-	if (data->level == -2)
-		return (render_text(data, (TILE * 9 - 1) / 3,
-				"Map loaded. Press 'n' to start"), 1);
-	if (data->level == -1)
+	if (data->level == -1 || data->level == -2)
 	{
-		render_text(data, (TILE * 6 + 1) / 2,
+		mlx_string_put(data->mlx.mlx, data->mlx.mlx_win,
+			TILE * 2, TILE * 3 - TILE / 2, 0x0,
 			"Jump over all the obstacles then go to the exit.");
-		return (render_text(data, TILE * 3 + TILE / 3,
+		return (mlx_string_put(data->mlx.mlx, data->mlx.mlx_win,
+				TILE * 2, TILE * 3 + TILE / 3, 0x0,
 				"Press 'n' to start the game."), 1);
 	}
 	if (data->level < 5)
-		return (render_text(data, TILE * 3 - TILE / 3,
+		return (mlx_string_put(data->mlx.mlx, data->mlx.mlx_win,
+				TILE * 2, TILE * 3 - TILE / 3, 0x0,
 				"Congratulations! You won! Press 'n' to go to the next level."),
 			1);
 	if (data->level == 5)

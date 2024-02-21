@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 09:42:49 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/21 15:29:32 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/21 17:53:57 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int	launch_message_screen(t_data *data)
 {
-	data->mlx = create_window(LEVEL_SIZE, 4);
+	if (create_win(data, LEVEL_SIZE, 4) == 0)
+		return (0);
 	data->assets = assets_table(data->mlx.mlx);
 	if (!data->assets)
 		return (0);
@@ -39,15 +40,13 @@ int	launch_game(t_data *data)
 			if (!level)
 				return (0);
 			if (map_parsing(level, &(data->map)) == 0
-				|| find_path(&(data->map)) == 0)
+				|| find_path(&(data->map)) == 0
+				|| create_win(data, data->map.size[X], data->map.size[Y]) == 0)
 				return (free(level), 0);
-			data->mlx = create_window(data->map.size[X], data->map.size[Y]);
-			if (free(level), !data->mlx.mlx_win)
-				return (free(level), ft_dprintf(2, WINDOW), 0);
 			data->assets = assets_table(data->mlx.mlx);
 			if (!data->assets)
 				return (free(level), 0);
-			terminate_window(data);
+			return (free(level), terminate_window(data), 1);
 		}
 	}
 	return (0);

@@ -6,24 +6,23 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 13:44:39 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/21 17:28:05 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/21 17:56:10 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-t_mlx_data	create_window(int x, int y)
+int	create_win(t_data *data, int x, int y)
 {
-	t_mlx_data	result;
-
-	result.mlx_win = NULL;
-	result.mlx = mlx_init();
-	if (!result.mlx)
-		return (ft_dprintf(2, WINDOW), result);
-	result.mlx_win = mlx_new_window(result.mlx, x * TILE, (y + 1) * TILE, NAME);
-	if (!result.mlx_win)
-		return (ft_dprintf(2, WINDOW), result);
-	return (result);
+	data->mlx.mlx_win = NULL;
+	data->mlx.mlx = mlx_init();
+	if (!data->mlx.mlx)
+		return (ft_dprintf(2, WINDOW), 0);
+	data->mlx.mlx_win = mlx_new_window(data->mlx.mlx, x * TILE,
+			(y + 1) * TILE, NAME);
+	if (!data->mlx.mlx_win)
+		return (free(data->mlx.mlx), ft_dprintf(2, WINDOW), 0);
+	return (1);
 }
 
 int	custom_loop_end(t_data *data)
@@ -50,9 +49,10 @@ void	free_all(t_data *data)
 	if (data->mlx.mlx && data->mlx.mlx)
 	{
 		mlx_destroy_window(data->mlx.mlx, data->mlx.mlx_win);
-		data->mlx.mlx_win = NULL;
 		mlx_destroy_display(data->mlx.mlx);
-		data->mlx.mlx == NULL;
+		free(data->mlx.mlx);
+		data->mlx.mlx_win = NULL;
+		data->mlx.mlx = NULL;
 	}
 	if (data->map.map_data)
 		ft_fsplit(data->map.map_data);
