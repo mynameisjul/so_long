@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 12:31:22 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/20 16:13:26 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/21 14:12:26 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@
 # define BYE -1
 
 /// LOOP
-# define SPEED 500
+# define SPEED 10000
 
 /// ERROR MESSAGES
 # define INVALID_MAP "Invalid map: maybe stop putting random things in it?\n"

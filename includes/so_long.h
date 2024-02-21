@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:21:19 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/20 14:07:07 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/21 14:19:40 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ int			render_bottom_margin(t_data *data);
 int			render_border(t_data *data);
 int			render_fix_content(t_mlx_data mlx, t_map map, void **assets);
 int			render_player(t_data *data);
-int			render_moving_content(t_mlx_data mlx, t_map map, void **assets);
+int			render_moving_content(t_data *data);
 int			render(t_data *data);
 int			render_counts(t_data *data);
 
