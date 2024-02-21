@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 11:31:49 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/21 14:42:01 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/21 18:22:15 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	map_parsing(char *file, t_map *map)
 
 	i = 0;
 	if (open_map(file, map) == -1)
-		return (0);
+		return (ft_dprintf(2, NOT_OPEN), 0);
 	if (map_check(map) == 0 || map->nb_coins < 1)
 		return (ft_dprintf(2, INVALID_MAP), 0);
 	if (map->size[X] > MAX_WIDTH || map->size[Y] > MAX_HEIGHT)
