@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 10:56:38 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/20 16:07:39 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/21 14:02:05 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,10 @@ int	move_enemies(t_data *data)
 		{
 			if (data->map.map_data[y][x] == ENEMIES
 				||data->map.map_data[y][x] == LENEMIES)
+			{
 				data->win = move_single_enemy(data, x, y);
+				push_tile(data->mlx, data->assets[T_SPACE], x, y);
+			}
 			if (data->win == LOSE)
 				return (LOSE);
 			x++;
