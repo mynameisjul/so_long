@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 11:31:49 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/19 14:29:05 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/21 12:16:44 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ int	map_check(t_map *map)
 		map->size[Y]++;
 		valid_last_line = valid_wall_line(*map, read.line, 1);
 	}
-	if (valid_last_line == 0)
-		return (close(map->fd), 0);
-	return (close(map->fd), map->isvalid);
+	if (valid_last_line == 0 || map->player[X] == -1 || map->exit[X] == -1)
+		return (free(read.line), close(map->fd), 0);
+	return (free(read.line), close(map->fd), map->isvalid);
 }
 
 int	map_error(t_map *map)
