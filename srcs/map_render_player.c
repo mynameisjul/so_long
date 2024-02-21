@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 19:33:28 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/21 15:27:14 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/21 18:12:41 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,27 @@ int	render_player_right(t_data *data)
 	int	ok;
 
 	ok = 0;
-	if (data->count < SPEED)
-		ok = push_tile(data->mlx, data->assets[T_P1], data->map.player[X],
-				data->map.player[Y]);
-	if (data->count >= SPEED && data->count < 2 * SPEED)
-		ok = push_tile(data->mlx, data->assets[T_P2], data->map.player[X],
-				data->map.player[Y]);
-	if (data->count >= 2 * SPEED && data->count < 3 * SPEED)
-		ok = push_tile(data->mlx, data->assets[T_P3], data->map.player[X],
-				data->map.player[Y]);
-	if (data->count >= 3 * SPEED && data->count < 4 * SPEED)
+	if (BONUS == 1)
+	{
+		if (data->count < SPEED)
+			ok = push_tile(data->mlx, data->assets[T_P1], data->map.player[X],
+					data->map.player[Y]);
+		if (data->count >= SPEED && data->count < 2 * SPEED)
+			ok = push_tile(data->mlx, data->assets[T_P2], data->map.player[X],
+					data->map.player[Y]);
+		if (data->count >= 2 * SPEED && data->count < 3 * SPEED)
+			ok = push_tile(data->mlx, data->assets[T_P3], data->map.player[X],
+					data->map.player[Y]);
+		if (data->count >= 3 * SPEED && data->count < 4 * SPEED)
+			ok = push_tile(data->mlx, data->assets[T_P4], data->map.player[X],
+					data->map.player[Y]);
+		data->count += 1;
+		if (data->count == 4 * SPEED)
+			data->count = 0;
+	}
+	else
 		ok = push_tile(data->mlx, data->assets[T_P4], data->map.player[X],
 				data->map.player[Y]);
-	data->count += 1;
-	if (data->count == 4 * SPEED)
-		data->count = 0;
 	return (ok);
 }
 
@@ -40,21 +46,27 @@ int	render_player_left(t_data *data)
 	int	ok;
 
 	ok = 0;
-	if (data->count < SPEED)
-		ok = push_tile(data->mlx, data->assets[T_LP1], data->map.player[X],
-				data->map.player[Y]);
-	if (data->count >= SPEED && data->count < 2 * SPEED)
-		ok = push_tile(data->mlx, data->assets[T_LP2], data->map.player[X],
-				data->map.player[Y]);
-	if (data->count >= 2 * SPEED && data->count < 3 * SPEED)
-		ok = push_tile(data->mlx, data->assets[T_LP3], data->map.player[X],
-				data->map.player[Y]);
-	if (data->count >= 3 * SPEED && data->count < 4 * SPEED)
+	if (BONUS == 1)
+	{
+		if (data->count < SPEED)
+			ok = push_tile(data->mlx, data->assets[T_LP1], data->map.player[X],
+					data->map.player[Y]);
+		if (data->count >= SPEED && data->count < 2 * SPEED)
+			ok = push_tile(data->mlx, data->assets[T_LP2], data->map.player[X],
+					data->map.player[Y]);
+		if (data->count >= 2 * SPEED && data->count < 3 * SPEED)
+			ok = push_tile(data->mlx, data->assets[T_LP3], data->map.player[X],
+					data->map.player[Y]);
+		if (data->count >= 3 * SPEED && data->count < 4 * SPEED)
+			ok = push_tile(data->mlx, data->assets[T_LP4], data->map.player[X],
+					data->map.player[Y]);
+		data->count += 1;
+		if (data->count == 4 * SPEED)
+			data->count = 0;
+	}
+	else
 		ok = push_tile(data->mlx, data->assets[T_LP4], data->map.player[X],
 				data->map.player[Y]);
-	data->count += 1;
-	if (data->count == 4 * SPEED)
-		data->count = 0;
 	return (ok);
 }
 
