@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 12:31:22 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/21 17:21:56 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/21 18:21:59 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 /// BONUS
 # ifndef BONUS
-#  define BONUS 1
+#  define BONUS 0
 # endif
 
 /// NAME
@@ -106,6 +106,7 @@
 # define SPEED 10000
 
 /// ERROR MESSAGES
+# define NOT_OPEN "Could not open file, maybe enter a proper path?\n"
 # define INVALID_MAP "Invalid map: maybe stop putting random things in it?\n"
 # define OVERSIZE_MAP "Oversize: Map way too big bro, way too big\n"
 # define MALLOC_ERR "Malloc error: Failed to malloc data\n"
