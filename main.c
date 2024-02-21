@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:20:52 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/21 17:57:59 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/21 18:29:18 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@ int	main(int ac, char **av)
 {
 	t_data		data;
 
-	init_tdata(&data);
-	if (ac == 2)
+	if (ac != 2 && BONUS == 0)
+		return (ft_dprintf(2, NOT_OPEN), 0);
+	if (init_tdata(&data), ac == 2)
 	{
 		if (create_win(&data, LEVEL_SIZE, 4) == 0)
 			return (0);
