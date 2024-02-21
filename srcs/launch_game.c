@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 09:42:49 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/21 17:53:57 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/21 18:15:12 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ int	launch_game(t_data *data)
 			data->assets = assets_table(data->mlx.mlx);
 			if (!data->assets)
 				return (free(level), 0);
-			return (free(level), terminate_window(data), 1);
+			free(level);
+			terminate_window(data);
 		}
 	}
 	return (0);
