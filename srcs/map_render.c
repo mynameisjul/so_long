@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:18:05 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/20 17:58:07 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/21 14:23:16 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,22 +26,20 @@ int	render(t_data *data)
 {
 	if (data->win == LOSE)
 		return (ft_printf(GAME_LOST), custom_loop_end(data), 0);
-	if(render_border(data) == 0
-		|| render_fix_content(data->mlx, data->map, data->assets) == 0
-		|| render_moving_content(data->mlx, data->map, data->assets) == 0
-		|| render_player(data) == 0) {
+	if (render_moving_content(data) == 0
+		|| render_player(data) == 0)
+		{
 		if (data->steps == 0)
 			return (ft_dprintf(2, LOAD_ASSETS), 0);
 		else
 			return (ft_printf(GAME_LOST), custom_loop_end(data), 0);
 		}
-		
-	// if (render_player(data) == 0)
 	if (data->map.enemy > 0)
 	{
 		if (data->enemy_speed == SPEED * 10)
 			move_enemies(data);
-		if (++data->enemy_speed > SPEED * 10)
+		data->enemy_speed++;
+		if (+data->enemy_speed > SPEED * 10)
 			data->enemy_speed = 0;
 		if (data->win != LOSE)
 			render_enemies(data);

@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 19:33:28 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/20 17:46:29 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/21 14:09:37 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int render_player(t_data *data)
 	x = data->map.player[Y];
 	y = data->map.player[X];
 	if (data->map.map_data[x][y] == ENEMIES || data->map.map_data[x][y] == LENEMIES)
-		return (1);
+		return (custom_loop_end(data), 0);
 	if (data->map.map_data[x][y] == PLAYER)
 		return (render_player_right(data));
 	else if (data->map.map_data[x][y] == LPLAYER)

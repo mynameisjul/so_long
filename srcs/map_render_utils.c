@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 15:18:11 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/19 10:19:48 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/21 14:29:19 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ int	render_fix_content(t_mlx_data mlx, t_map map, void **assets)
 	return (1);
 }
 
-int	render_moving_content(t_mlx_data mlx, t_map map, void **assets)
+int	render_moving_content(t_data *data)
 {
 	int	x;
 	int	y;
@@ -109,16 +109,12 @@ int	render_moving_content(t_mlx_data mlx, t_map map, void **assets)
 	x = 1;
 	y = 1;
 	ok = 1;
-	while (y < map.size[Y] - 1)
+	while (y < data->map.size[Y] - 1)
 	{
-		while (x < map.size[X] - 1)
+		while (x < data->map.size[X] - 1)
 		{	
-			if (map.map_data[y][x] == COIN)
-				ok = push_tile(mlx, assets[T_COIN], x, y);
-			if (map.map_data[y][x] == COL_COIN)
-				ok = push_tile(mlx, assets[T_COLLEC_COIN], x, y);
-			if (map.map_data[y][x] == OPEN_EXIT)
-				ok = push_tile(mlx, assets[T_OPEN_EXIT], x, y);
+			if (data->map.map_data[y][x] == COIN)
+				ok = push_tile(data->mlx, data->assets[T_COIN], x, y);
 			if (ok == 0)
 				return (0);
 			x++;
