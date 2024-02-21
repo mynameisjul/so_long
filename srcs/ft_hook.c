@@ -6,13 +6,13 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 17:45:12 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/20 18:01:17 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/21 15:29:56 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int ft_hook(int keycode, t_data *data)
+int	ft_hook(int keycode, t_data *data)
 {
 	int	steps;
 
@@ -40,7 +40,7 @@ int ft_hook(int keycode, t_data *data)
 	return (data->win);
 }
 
-int ft_level_hook(int keycode, t_data *data)
+int	ft_level_hook(int keycode, t_data *data)
 {
 	if (keycode == ESCAPE)
 	{

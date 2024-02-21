@@ -6,16 +6,16 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 10:33:54 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/20 17:19:53 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/21 17:19:39 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int player_up(t_data *data)
+int	player_up(t_data *data)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	x = data->map.player[Y] - 1;
 	y = data->map.player[X];
@@ -40,10 +40,10 @@ int player_up(t_data *data)
 	return (RUN);
 }
 
-int player_down(t_data *data)
+int	player_down(t_data *data)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	x = data->map.player[Y] + 1;
 	y = data->map.player[X];
@@ -68,10 +68,10 @@ int player_down(t_data *data)
 	return (RUN);
 }
 
-int player_left(t_data *data)
+int	player_left(t_data *data)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	x = data->map.player[Y];
 	y = data->map.player[X] - 1;
@@ -96,10 +96,10 @@ int player_left(t_data *data)
 	return (RUN);
 }
 
-int player_right(t_data *data)
+int	player_right(t_data *data)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	x = data->map.player[Y];
 	y = data->map.player[X] + 1;

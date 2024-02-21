@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:21:19 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/21 14:19:40 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/21 17:21:13 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,41 +21,41 @@
 
 typedef struct s_map
 {
-	char **map_data;
-	int fd;
-	int isvalid;
-	int size[2];
-	int nb_coins;
-	int player[2];
-	int exit[2];
-	int	enemy;
+	char	**map_data;
+	int		fd;
+	int		isvalid;
+	int		size[2];
+	int		nb_coins;
+	int		player[2];
+	int		exit[2];
+	int		enemy;
 }				t_map;
 
 typedef struct s_mlx_data
 {
-	void *mlx;
-	void *mlx_win;
+	void	*mlx;
+	void	*mlx_win;
 }				t_mlx_data;
 
 typedef struct s_img
 {
-	void *img_ptr;
-	char *addr;
-	int bits_per_pixel;
-	int line_length;
-	int endian;
+	void	*img_ptr;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
 }				t_img;
 
 typedef struct s_data
 {
-	t_mlx_data mlx;
-	t_map map;
-	void **assets;
-	int count;
-	int	steps;
-	int	level;
-	int	win;
-	int enemy_speed;
+	t_mlx_data	mlx;
+	t_map		map;
+	void		**assets;
+	int			count;
+	int			steps;
+	int			level;
+	int			win;
+	int			enemy_speed;
 }				t_data;
 
 /////////////////////////////////
@@ -63,11 +63,12 @@ typedef struct s_data
 /////////////////////////////////
 
 int			render_level_window(t_data	*data);
-char		*level_char(int	level);
+char		*level_char(int level);
 void		terminate_level_window(t_data *data);
 int			ft_level_hook(int keycode, t_data *data);
 int			launch_message_screen(t_data *data);
 int			launch_game(t_data *data);
+int			render_text(t_data *data, int y, char **text);
 
 /////////////////////////////////
 /////////// PARSING /////////////
@@ -88,7 +89,7 @@ int			map_check(t_map *map);
 int			map_parsing(char *file, t_map *map);
 
 /// PATH FINDING
-int			recurs_path_find(char **m, t_map *cpmap, t_map map, int x, int y);
+int			recurs_path_find(t_map *cpmap, t_map map, int x, int y);
 int			find_path(t_map *map);
 
 /////////////////////////////////
@@ -115,6 +116,7 @@ int			render_player(t_data *data);
 int			render_moving_content(t_data *data);
 int			render(t_data *data);
 int			render_counts(t_data *data);
+int			render_corners(t_data *data);
 
 /// PLAYER MOVES MANAGEMENT
 int			ft_hook(int keycode, t_data *data);

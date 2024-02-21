@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 10:56:38 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/21 14:02:05 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/21 15:31:06 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,11 @@ int	move_single_enemy(t_data *data, int x, int y)
 	int	*moves;
 	int	i;
 
-	moves = (int []) {valid_enemy_destination(data, x, y - 1),
-			valid_enemy_destination(data, x, y + 1),
-			valid_enemy_destination(data, x - 1, y),
-			valid_enemy_destination(data, x + 1, y),
-			0};
+	moves = (int []){valid_enemy_destination(data, x, y - 1),
+		valid_enemy_destination(data, x, y + 1),
+		valid_enemy_destination(data, x - 1, y),
+		valid_enemy_destination(data, x + 1, y),
+		0};
 	moves[4] = moves[0] + moves[1] + moves[2] + moves[3];
 	if (moves[4] == 0)
 		return (1);
@@ -60,7 +60,7 @@ int	move_single_enemy(t_data *data, int x, int y)
 	if (i == 0)
 		return (move_single_enemy_up(data, x, y));
 	if (i == 1)
-		return ( move_single_enemy_down(data, x, y));
+		return (move_single_enemy_down(data, x, y));
 	if (i == 2)
 		return (move_single_enemy_left(data, x, y));
 	if (i == 3)

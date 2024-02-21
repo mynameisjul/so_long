@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 12:31:22 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/21 14:12:26 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/21 17:21:56 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 /// BONUS
 # ifndef BONUS
 #  define BONUS 1
-#endif
+# endif
 
 /// NAME
 # define NAME "Poney poney run run"
@@ -79,7 +79,7 @@
 # define T_LP4 23
 # define T_LPLAYER_COIN 24
 # define T_LPLAYER 23
-# define T_LOWERBORDER 25
+# define T_LOWBORD 25
 # define T_E1 26
 # define T_E2 27
 # define T_E3 28
@@ -109,9 +109,9 @@
 # define INVALID_MAP "Invalid map: maybe stop putting random things in it?\n"
 # define OVERSIZE_MAP "Oversize: Map way too big bro, way too big\n"
 # define MALLOC_ERR "Malloc error: Failed to malloc data\n"
-# define NO_PATH "No solution path: No way you're getting out with all the coins\n"
+# define NO_PATH "No solution path: you're getting out with all the coins\n"
 # define WINDOW "Failed to open a window\n"
-# define LOAD_ASSETS "Assets error: could not load the game's spleeeeeendid assets\n"
+# define LOAD_ASSETS "Assets error: could not load the game's spleendid assets\n"
 # define GAME_LOST "You lost! (t'es mauvais Jack, t'es mauvaaaaaais)\n"
 
 #endif

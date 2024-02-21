@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 13:01:19 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/20 16:46:52 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/21 15:03:48 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	charge_base(void *mlx, void ***table)
 	table[0][T_BOTT] = xpm_to_image(mlx, "assets/bott.xpm");
 	table[0][T_RIGHT] = xpm_to_image(mlx, "assets/right.xpm");
 	table[0][T_LEFT] = xpm_to_image(mlx, "assets/left.xpm");
-	table[0][T_LOWERBORDER] = xpm_to_image(mlx, "assets/lower_border.xpm");
+	table[0][T_LOWBORD] = xpm_to_image(mlx, "assets/lower_border.xpm");
 }
 
 void	charge_player_assets(void *mlx, void ***table)

@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:18:05 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/21 14:23:16 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/21 15:22:10 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,37 @@ char	*add_nbr_to_char(int n, char *str)
 {
 	char	*nbr;
 	char	*result;
-	
+
 	nbr = ft_itoa(n);
 	result = ft_strjoin(str, nbr);
 	return (free(nbr), result);
+}
+
+int	render_border(t_data *data)
+{
+	int	i;
+
+	i = 1;
+	if (render_corners(data) == 0)
+		return (0);
+	while (i < data->map.size[X] - 1)
+	{
+		if (push_tile(data->mlx, data->assets[T_TOP], i, 0) == 0
+			|| push_tile(data->mlx, data->assets[T_BOTT], i,
+				data->map.size[Y] - 1) == 0)
+			return (0);
+		i++;
+	}
+	i = 1;
+	while (i < data->map.size[Y] - 1)
+	{
+		if (push_tile(data->mlx, data->assets[T_LEFT], 0, i) == 0
+			|| push_tile(data->mlx, data->assets[T_RIGHT],
+				data->map.size[X] - 1, i) == 0)
+			return (0);
+		i++;
+	}
+	return (1);
 }
 
 int	render(t_data *data)
@@ -28,12 +55,12 @@ int	render(t_data *data)
 		return (ft_printf(GAME_LOST), custom_loop_end(data), 0);
 	if (render_moving_content(data) == 0
 		|| render_player(data) == 0)
-		{
+	{
 		if (data->steps == 0)
 			return (ft_dprintf(2, LOAD_ASSETS), 0);
 		else
 			return (ft_printf(GAME_LOST), custom_loop_end(data), 0);
-		}
+	}
 	if (data->map.enemy > 0)
 	{
 		if (data->enemy_speed == SPEED * 10)
@@ -44,7 +71,7 @@ int	render(t_data *data)
 		if (data->win != LOSE)
 			render_enemies(data);
 		if (data->win == LOSE)
-			return(ft_printf(GAME_LOST), custom_loop_end(data));
+			return (ft_printf(GAME_LOST), custom_loop_end(data));
 	}
 	return (1);
 }
@@ -63,13 +90,13 @@ int	render_counts(t_data *data)
 	if (level)
 	{
 		mlx_string_put(data->mlx.mlx, data->mlx.mlx_win,
-						TILE, (data->map.size[Y] + 1) * TILE - 5, 0x0, level);
+			TILE, (data->map.size[Y] + 1) * TILE - 5, 0x0, level);
 		free(level);
 	}
 	if (steps)
 	{
 		mlx_string_put(data->mlx.mlx, data->mlx.mlx_win,
-						TILE, data->map.size[Y] * TILE + TILE / 2 - 5, 0x0, steps);
+			TILE, data->map.size[Y] * TILE + TILE / 2 - 5, 0x0, steps);
 		free(steps);
 	}
 	return (1);

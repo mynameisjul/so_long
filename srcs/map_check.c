@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 15:45:30 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/21 12:20:48 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/21 14:42:16 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	valid_line(t_map *map, t_read read)
 				map->enemy++;
 			i++;
 		}
-		if (i == map->size[X] && read.line[0] == WALL 
+		if (i == map->size[X] && read.line[0] == WALL
 			&& read.line[i - 1] == WALL)
 			return (1);
 	}

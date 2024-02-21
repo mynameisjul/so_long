@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 13:44:39 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/21 11:32:48 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/21 15:01:43 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ t_mlx_data	create_window(int x, int y)
 	result.mlx_win = mlx_new_window(result.mlx, x * TILE, (y + 1) * TILE, NAME);
 	if (!result.mlx_win)
 		return (ft_dprintf(2, WINDOW), result);
-	
 	return (result);
 }
 
