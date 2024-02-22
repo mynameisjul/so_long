@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 17:45:12 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/21 15:29:56 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/22 16:31:09 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int	ft_hook(int keycode, t_data *data)
 	steps = data->steps;
 	if (keycode == ESCAPE)
 		return (custom_loop_end(data));
-	if (data->win != LOSE)
+	if (data->win != LOSE && (keycode == UP || keycode == DOWN
+			|| keycode == RIGHT || keycode == LEFT))
 	{
 		if (keycode == UP)
 			data->win = player_up(data);
