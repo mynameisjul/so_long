@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 13:01:19 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/21 15:03:48 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/22 13:43:48 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,10 +79,9 @@ void	**assets_table(void *mlx)
 	{
 		if (table[i] == NULL)
 		{
-			ft_dprintf(2, LOAD_ASSETS);
 			free_non_null(&table, NB_ASSETS);
 			free(table);
-			return (table);
+			return (ft_dprintf(2, LOAD_ASSETS), NULL);
 		}
 		i++;
 	}

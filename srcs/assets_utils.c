@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 18:27:13 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/21 15:24:38 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/22 13:43:41 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	*xpm_to_image(void *mlx, char *relative_path)
 	size2 = TILE;
 	img = mlx_xpm_file_to_image(mlx, relative_path, &size, &size2);
 	if (img == 0)
-		return (ft_dprintf(2, LOAD_ASSETS), NULL);
+		return (NULL);
 	return (img);
 }
 
