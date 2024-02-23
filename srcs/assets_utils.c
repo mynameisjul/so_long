@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 18:27:13 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/22 13:43:41 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/23 17:56:55 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,14 @@ void	*xpm_to_image(void *mlx, char *relative_path)
 	return (img);
 }
 
-void	free_non_null(void ***table, int size)
-{
-	while (size > 0)
-	{
-		if (table[0][size - 1] != NULL)
-			free(table[0][size - 1]);
-		size--;
-	}
-}
+// void	free_non_null(void **table, int size, t_data *data)
+// {
+// 	while (size > 0)
+// 	{
+// 		if (table[size - 1] != NULL)
+// 		{
+// 			mlx_destroy_image(data->mlx.mlx, table[size - 1]);
+// 		}
+// 		size--;
+// 	}
+// }

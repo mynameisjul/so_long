@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:21:19 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/21 17:54:32 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/23 17:52:34 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,8 +103,8 @@ int			custom_loop_end(t_data *data);
 
 /// ASSETS LOADING
 void		*xpm_to_image(void *mlx, char *relative_path);
-void		free_non_null(void ***table, int size);
-void		**assets_table(void *mlx);
+void		free_non_null(void **table, int size, t_data *data);
+void		**assets_table(void *mlx, t_data *data);
 
 /// MAP RENDER
 int			push_tile(t_mlx_data mlx, void *asset, int x_coord, int y_coord);

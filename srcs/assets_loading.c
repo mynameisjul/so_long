@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 13:01:19 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/22 13:43:48 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/23 17:57:12 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,28 +62,23 @@ void	charge_enemy(void *mlx, void ***table)
 	table[0][T_LE4] = xpm_to_image(mlx, "assets/lenemy_4.xpm");
 }
 
-void	**assets_table(void *mlx)
+void	**assets_table(void *mlx, t_data *data)
 {
-	void	**table;
 	int		i;
 
 	i = 0;
-	table = (void **) ft_calloc(NB_ASSETS + 1, sizeof(void *));
-	if (!table)
+	data->assets = (void **) ft_calloc(NB_ASSETS + 1, sizeof(void *));
+	if (!data->assets)
 		return (ft_dprintf(2, MALLOC_ERR), NULL);
-	charge_base(mlx, &table);
-	charge_assets(mlx, &table);
-	charge_player_assets(mlx, &table);
-	charge_enemy(mlx, &table);
+	charge_base(mlx, &data->assets);
+	charge_assets(mlx, &data->assets);
+	charge_player_assets(mlx, &data->assets);
+	charge_enemy(mlx, &data->assets);
 	while (i < NB_ASSETS)
 	{
-		if (table[i] == NULL)
-		{
-			free_non_null(&table, NB_ASSETS);
-			free(table);
+		if (data->assets[i] == NULL)
 			return (ft_dprintf(2, LOAD_ASSETS), NULL);
-		}
 		i++;
 	}
-	return (table);
+	return (data->assets);
 }
