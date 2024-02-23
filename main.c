@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:20:52 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/23 17:56:05 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/23 18:15:56 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ int	main(int ac, char **av)
 		init_tmap(&(data.map));
 		if (map_parsing(av[1], &(data.map)) == 0 || find_path(&(data.map)) == 0
 			|| create_win(&data, data.map.size[X], data.map.size[Y]) == 0)
-			return (0);
+			return (free_all(&data), 0);
 		if (!assets_table(data.mlx.mlx, &data))
-			return (0);
+			return (free_all(&data), 0);
 		return (terminate_window(&data), 0);
 	}
 	return (launch_game(&data));

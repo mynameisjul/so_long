@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 09:42:49 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/23 18:01:46 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/23 18:13:31 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ int	launch_game(t_data *data)
 			if (map_parsing(level, &(data->map)) == 0
 				|| find_path(&(data->map)) == 0
 				|| create_win(data, data->map.size[X], data->map.size[Y]) == 0)
-				return (free(level), 0);
+				return (free(level), free_all(data), 0);
 			assets_table(data->mlx.mlx, data);
 			if (!data->assets)
-				return (free(level), 0);
+				return (free(level), free_all(data), 0);
 			free(level);
 			terminate_window(data);
 		}

@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 13:44:39 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/21 17:56:10 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/23 19:05:15 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,17 @@ void	free_all(t_data *data)
 	int	i;
 
 	i = NB_ASSETS;
-	mlx_clear_window(data->mlx.mlx, data->mlx.mlx_win);
-	while (i > 0)
-	{
-		if (data->assets[i - 1] != 0)
-			mlx_destroy_image(data->mlx.mlx, data->assets[i - 1]);
-		i--;
-	}
-	if (data->assets)
-		free(data->assets);
 	if (data->mlx.mlx && data->mlx.mlx)
 	{
+		mlx_clear_window(data->mlx.mlx, data->mlx.mlx_win);
+		while (i > 0)
+		{
+			if (data->assets && data->assets[i - 1] != 0)
+				mlx_destroy_image(data->mlx.mlx, data->assets[i - 1]);
+			i--;
+		}
+		if (data->assets)
+			free(data->assets);
 		mlx_destroy_window(data->mlx.mlx, data->mlx.mlx_win);
 		mlx_destroy_display(data->mlx.mlx);
 		free(data->mlx.mlx);
