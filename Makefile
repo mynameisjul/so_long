@@ -6,7 +6,7 @@
 #    By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/23 16:04:07 by jblaye            #+#    #+#              #
-#    Updated: 2024/02/21 18:33:46 by jblaye           ###   ########.fr        #
+#    Updated: 2024/02/23 18:05:37 by jblaye           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,5 +72,7 @@ testfclean:
 			rm -f $(TEST_NAME)
 
 re:			fclean all
+
+rebonus:	fclean bonus
 
 .PHONY:		all clean fclean re libft
