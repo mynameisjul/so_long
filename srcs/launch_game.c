@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 09:42:49 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/21 18:15:12 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/23 18:01:46 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,8 @@ int	launch_message_screen(t_data *data)
 {
 	if (create_win(data, LEVEL_SIZE, 4) == 0)
 		return (0);
-	data->assets = assets_table(data->mlx.mlx);
-	if (!data->assets)
-		return (0);
+	if (!assets_table(data->mlx.mlx, data))
+		return (free_all(data), 0);
 	terminate_level_window(data);
 	if (data->win == BYE || data->level == -1)
 		return (0);
@@ -43,7 +42,7 @@ int	launch_game(t_data *data)
 				|| find_path(&(data->map)) == 0
 				|| create_win(data, data->map.size[X], data->map.size[Y]) == 0)
 				return (free(level), 0);
-			data->assets = assets_table(data->mlx.mlx);
+			assets_table(data->mlx.mlx, data);
 			if (!data->assets)
 				return (free(level), 0);
 			free(level);
