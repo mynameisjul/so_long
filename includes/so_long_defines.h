@@ -6,7 +6,7 @@
 /*   By: jblaye <jblaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 12:31:22 by jblaye            #+#    #+#             */
-/*   Updated: 2024/02/22 16:08:03 by jblaye           ###   ########.fr       */
+/*   Updated: 2024/02/23 19:30:31 by jblaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@
 # define BYE -1
 
 /// LOOP
-# define SPEED 100
+# define SPEED 1000
 
 /// ERROR MESSAGES
 # define NOT_OPEN "Could not open file, maybe enter a proper path?\n"
